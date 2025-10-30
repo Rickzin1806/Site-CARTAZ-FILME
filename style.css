@@ -1,162 +1,123 @@
-/* ✅ CSS puro compatível com HTML do Catálogo de Filmes */
-
 body {
-  font-family: Arial, sans-serif;
-  background: #f7f7f7;
-  color: #222;
-  margin: 0;
-  padding: 20px;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
 }
 
 h1, h2 {
-  text-align: center;
-  color: #0F1D2A;
+    color: #333;
 }
 
 form {
-  background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 500px;
-  margin: 0 auto 20px auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-form div {
-  margin-bottom: 15px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow:  2px 4px rgba(0,0,0,0.1);
 }
 
 label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 button {
-  background: #0F1D2A;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.3s;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .2s;
 }
 
 button:hover {
-  background: #1b334b;
+    background-color: #0056b3;
 }
 
-/* ==================== LISTA DE FILMES ==================== */
+/* ----------------------------------------------------------- */
+/* ESTILOS PARA A FASE 2: LISTA COM PÔSTER (FlexBox) */
+/* ----------------------------------------------------------- */
 
-#lista-filmes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-  padding: 10px;
-}
-
+/* Contêiner do Filme: Organiza imagem de texto */
 .filme-item {
-  background: #fff;
-  border-radius: 10px;
-  width: 240px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.3s ease;
+    display: flex; /* Habilita o alinhamento lado a lado */
+    align-items: center;
+
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .1);
 }
 
-.filme-item:hover {
-  transform: translateY(-5px);
-}
-
+/* Estilo do Pôster */
 .filme-poster {
-  width: 100%;
-  height: 350px;
-  object-fit: cover;
-  border-bottom: 1px solid #eee;
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 15px; /* Espaço entre o pôster e o texto */
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
 }
 
+/* Estilo do Bloco de Informações */
 .filme-info {
-  padding: 15px;
+    flex-grow: 1; /*    Ocupa o espaço restante */
 }
 
 .filme-info h3 {
-  margin: 0 0 10px 0;
-  font-size: 18px;
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1.2rem;
 }
 
 .filme-info p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 15px;
+    font-size: normal;
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.4;
 }
 
-/* Botões de ação */
-.btn-remover {
-  background: #b02a37;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-  transition: 0.3s;
-  margin-right: 5px;
+/* Botão Remover */
+.filme-item .btn-remover {
+    background-color: #dc3545;
+    font-size: 0.8rem;
+    padding: 5px 10px;
 }
 
-.btn-remover:hover {
-  background: #d33b4b;
+.filme-item .btn-remover:hover {
+    background-color: #c82333;
 }
 
 .btn-trailer {
-  display: inline-block;
-  text-align: center;
-  background: #35bbd1;
-  color: white;
-  border-radius: 6px;
-  text-decoration: none;
-  padding: 8px 12px;
-  font-size: 13px;
-  transition: 0.3s;
-}
+    display: inline-block;
+    padding: 8px 12px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-color: red;
+    color: white !important;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-size: 0.8rem;
 
-.btn-trailer:hover {
-  background: #249eaf;
-}
-
-/* ==================== RESPONSIVIDADE ==================== */
-
-@media (max-width: 768px) {
-  form {
-    width: 90%;
-  }
-
-  .filme-item {
-    width: 45%;
-  }
-}
-
-@media (max-width: 480px) {
-  .filme-item {
-    width: 90%;
-  }
-
-  button, .btn-remover, .btn-trailer {
-    width: 100%;
-    margin-top: 5px;
-  }
-
-  .filme-info {
-    text-align: center;
-  }
+    &:hover {
+        background-color: darkred;
+    }
 }
